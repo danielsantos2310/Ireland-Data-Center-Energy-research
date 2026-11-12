@@ -1,5 +1,7 @@
 # Ireland Data Centre Energy Analytics
 
+**[Explore the live interactive data story →](https://danielsantos2310.github.io/Ireland-Data-Center-Energy-research/)**
+
 A reproducible Python analysis of how data-centre growth is changing Ireland's electricity demand, how that demand relates to the recent electricity-supply mix, and what continued growth could imply for the Irish grid through 2035.
 
 > This is an independent portfolio analysis based on official public data. Forecasts and scenarios are analytical projections, not official forecasts or policy recommendations.
