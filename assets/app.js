@@ -56,6 +56,18 @@
     };
   }
 
+  function setupBackToTop() {
+    document.querySelectorAll('a[href="#top"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (history.replaceState) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      });
+    });
+  }
+
   function revealOnScroll() {
     const nodes = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -393,6 +405,7 @@
   }
 
   async function boot() {
+    setupBackToTop();
     revealOnScroll();
     animateCounters();
 
