@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07131f" />
+  <meta name="description" content="An interactive data story about Ireland's data-centre electricity demand, grid context and 2035 scenarios." />
+  <meta property="og:title" content="Ireland's Data Centre Energy Boom" />
+  <meta property="og:description" content="From 1.24 TWh to 7.66 TWh in a decade. Explore what continued data-centre growth could mean for Ireland's electricity system through 2035." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/danielsantos2310/Ireland-Data-Center-Energy-research/main/charts/08_data_centre_forecast_2035.png" />
+  <title>Ireland's Data Centre Energy Boom — Interactive Data Story</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#story">Skip to story</a>
+
+  <header class="site-header" id="top">
+    <div class="shell nav-shell">
+      <a class="brand" href="#top" aria-label="Ireland Data Centre Energy Analytics home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>IRELAND / ENERGY / DATA</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#story">Story</a>
+        <a href="#methodology">Method</a>
+        <a href="notebooks/Ireland_Data_Centre_Energy_Analytics_Final.ipynb">Notebook</a>
+        <a class="nav-cta" href="https://github.com/danielsantos2310/Ireland-Data-Center-Energy-research" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="story">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-grid shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Independent analysis · Official Irish data · 2015–2035</p>
+          <h1 id="hero-title">Ireland's data-centre<br><span>energy boom</span></h1>
+          <p class="hero-deck">Data centres used more than six times as much electricity in Ireland in 2025 as they did in 2015. What happens if that growth continues?</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#growth">Explore the story</a>
+            <a class="button ghost" href="notebooks/Ireland_Data_Centre_Energy_Analytics_Final.ipynb">Open the analysis</a>
+          </div>
+          <p class="micro-note">Observed history uses CSO data. Forecasts and scenarios are analytical projections, not official forecasts.</p>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Electricity consumption growth summary">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-label">Data-centre electricity</span>
+            <strong><span data-counter="1.24" data-decimals="2">1.24</span> <small>TWh</small></strong>
+            <span class="hero-stat-year">2015</span>
+          </div>
+          <div class="hero-arrow" aria-hidden="true">→</div>
+          <div class="hero-stat-card featured">
+            <span class="hero-stat-label">Data-centre electricity</span>
+            <strong><span data-counter="7.66" data-decimals="2">7.66</span> <small>TWh</small></strong>
+            <span class="hero-stat-year">2025</span>
+          </div>
+          <div class="growth-pill">+518% over the decade</div>
+        </div>
+      </div>
+
+      <div class="kpi-strip shell reveal" aria-label="Key findings">
+        <article class="kpi-card">
+          <span class="kpi-label">Ten-year growth</span>
+          <strong><span data-counter="6.18" data-decimals="2">6.18</span>×</strong>
+          <p>Electricity consumption</p>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">2025 share</span>
+          <strong><span data-counter="23.2" data-decimals="1">23.2</span>%</strong>
+          <p>Of metered electricity</p>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Demand growth</span>
+          <strong><span data-counter="76.6" data-decimals="1">76.6</span>%</strong>
+          <p>Share attributable to data centres</p>
+        </article>
+        <article class="kpi-card accent-card">
+          <span class="kpi-label">2035 trend projection</span>
+          <strong><span data-counter="14.3" data-decimals="1">14.3</span> <small>TWh</small></strong>
+          <p>Annual electricity consumption</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter shell" id="growth">
+      <div class="chapter-marker reveal"><span>01</span><p>The growth</p></div>
+      <div class="chapter-grid">
+        <div class="chapter-copy reveal">
+          <p class="eyebrow">2015 → 2025</p>
+          <h2>A structural rise, not a short-term spike.</h2>
+          <p>Irish data-centre electricity consumption increased from <strong>1,240 GWh</strong> in 2015 to <strong>7,662 GWh</strong> in 2025 using the sum of quarterly CSO observations.</p>
+          <p>That is a compound annual growth rate of roughly <strong>20%</strong>. Growth accelerated sharply around 2020–2022, then moderated — but consumption still reached a record level in 2025.</p>
+          <div class="insight-callout">
+            <span class="callout-label">The key signal</span>
+            <p>The rate of growth has slowed, but the level of demand keeps climbing.</p>
+          </div>
+        </div>
+        <div class="chart-card reveal">
+          <div class="chart-head">
+            <div><span class="chart-kicker">Observed</span><h3>Annual data-centre electricity consumption</h3></div>
+            <span class="unit-chip">GWh</span>
+          </div>
+          <div class="chart-wrap"><canvas id="growthChart" role="img" aria-label="Annual data-centre electricity consumption from 2015 to 2025"></canvas></div>
+          <p class="chart-source">Source: CSO MEC02 · Quarterly values aggregated by calendar year.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-alt" id="share">
+      <div class="shell">
+        <div class="chapter-marker reveal"><span>02</span><p>The share</p></div>
+        <div class="chapter-grid reverse">
+          <div class="chart-card reveal">
+            <div class="chart-head">
+              <div><span class="chart-kicker">Observed</span><h3>Data-centre share of metered electricity</h3></div>
+              <span class="unit-chip">%</span>
+            </div>
+            <div class="chart-wrap"><canvas id="shareChart" role="img" aria-label="Data-centre share of Irish metered electricity from 2015 to 2025"></canvas></div>
+            <p class="chart-source">Source: CSO MEC02.</p>
+          </div>
+          <div class="chapter-copy reveal">
+            <p class="eyebrow">A changing demand profile</p>
+            <h2>From one unit in twenty to almost one in four.</h2>
+            <p>Data centres accounted for about <strong>5.0%</strong> of metered electricity in 2015. By 2025, that share had risen to <strong>23.2%</strong>.</p>
+            <div class="big-number-block">
+              <strong>23.2%</strong>
+              <span>of metered electricity in 2025</span>
+            </div>
+            <p class="micro-note">“Metered electricity” is the CSO measure used here; it is not identical to total grid supply.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter shell" id="contribution">
+      <div class="chapter-marker reveal"><span>03</span><p>Who drove the increase?</p></div>
+      <div class="chapter-grid">
+        <div class="chapter-copy reveal">
+          <p class="eyebrow">Net metered-demand growth</p>
+          <h2>Most of the decade's increase came from data centres.</h2>
+          <p>Between 2015 and 2025, data-centre consumption increased by roughly <strong>6.42 TWh</strong>. That represents about <strong>76.6%</strong> of the net increase in total metered electricity consumption over the same period.</p>
+          <p>This does not mean other demand was static — it means the data-centre contribution dominated the net growth.</p>
+        </div>
+        <div class="contribution-card reveal">
+          <div class="contribution-ring" aria-label="76.6 percent of net metered demand growth attributable to data centres">
+            <svg viewBox="0 0 160 160" role="img" aria-hidden="true">
+              <circle class="ring-track" cx="80" cy="80" r="62"></circle>
+              <circle class="ring-value" cx="80" cy="80" r="62" pathLength="100" stroke-dasharray="76.6 23.4"></circle>
+            </svg>
+            <div class="ring-label"><strong>76.6%</strong><span>Data centres</span></div>
+          </div>
+          <div class="contribution-legend">
+            <div><span class="legend-dot green"></span><strong>76.6%</strong><small>Data centres</small></div>
+            <div><span class="legend-dot muted"></span><strong>23.4%</strong><small>Rest of net growth</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-alt" id="grid">
+      <div class="shell">
+        <div class="chapter-marker reveal"><span>04</span><p>The electricity system</p></div>
+        <div class="chapter-grid reverse">
+          <div class="chart-card reveal">
+            <div class="chart-head">
+              <div><span class="chart-kicker">2025 context</span><h3>Where Ireland's electricity supply came from</h3></div>
+              <span class="unit-chip">GWh</span>
+            </div>
+            <div class="chart-wrap tall"><canvas id="supplyChart" role="img" aria-label="Composition of Irish electricity supply in 2025"></canvas></div>
+            <p class="chart-source">Source: CSO ESSA04. Components shown reconcile to total electricity supplied.</p>
+          </div>
+          <div class="chapter-copy reveal">
+            <p class="eyebrow">Demand is only half the story</p>
+            <h2>The grid has to expand and decarbonise at the same time.</h2>
+            <p>In 2025, gas remained the largest domestic generation source, wind provided a major share of generation, solar was growing quickly, and net imports were material to total supply.</p>
+            <div class="stat-stack">
+              <div><span>Wind</span><strong>11.78 TWh</strong></div>
+              <div><span>Gas</span><strong>13.92 TWh</strong></div>
+              <div><span>Net imports</span><strong>6.13 TWh</strong></div>
+              <div><span>Solar</span><strong>1.10 TWh</strong></div>
+            </div>
+            <p class="micro-note">Grid supply and metered consumer demand use different accounting boundaries and should not be compared as if they were the same measure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter shell" id="forecast">
+      <div class="chapter-marker reveal"><span>05</span><p>What happens next?</p></div>
+      <div class="forecast-intro reveal">
+        <p class="eyebrow">A validated statistical trend projection</p>
+        <h2>If the recent structure persists, annual consumption approaches 14.3 TWh by 2035.</h2>
+        <p>Four transparent forecasting approaches were compared using rolling-origin one-step-ahead validation over 2024–2025. A damped Holt trend performed best.</p>
+      </div>
+      <div class="model-row reveal" aria-label="Forecast model performance">
+        <div><span>Best model</span><strong>Holt damped trend</strong></div>
+        <div><span>RMSE</span><strong>43.1 GWh</strong></div>
+        <div><span>MAPE</span><strong>1.97%</strong></div>
+        <div><span>R²</span><strong>0.845</strong></div>
+      </div>
+      <div class="chart-card wide reveal">
+        <div class="chart-head">
+          <div><span class="chart-kicker">Observed + projected</span><h3>Historical demand and 2026–2035 trend projection</h3></div>
+          <span class="unit-chip">GWh</span>
+        </div>
+        <div class="chart-wrap forecast"><canvas id="forecastChart" role="img" aria-label="Historical and projected annual data-centre electricity consumption from 2015 to 2035"></canvas></div>
+        <p class="chart-source">The projection is a statistical trend, not a guarantee of future connections or demand.</p>
+      </div>
+      <div class="impact-band reveal">
+        <div><span>2025</span><strong>7.66 TWh</strong></div>
+        <div class="impact-arrow">→</div>
+        <div><span>2035 projection</span><strong>14.31 TWh</strong></div>
+        <div class="impact-equals">=</div>
+        <div class="impact-highlight"><span>Additional average load</span><strong>≈ 758 MW</strong></div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-alt" id="benchmark">
+      <div class="shell">
+        <div class="chapter-marker reveal"><span>06</span><p>Reality check</p></div>
+        <div class="chapter-grid reverse">
+          <div class="chart-card reveal">
+            <div class="chart-head">
+              <div><span class="chart-kicker">2024 = 100</span><h3>2035 growth benchmark</h3></div>
+              <span class="unit-chip">Index</span>
+            </div>
+            <div class="chart-wrap"><canvas id="benchmarkChart" role="img" aria-label="2035 indexed growth comparison between EirGrid scenarios and the Holt trend projection"></canvas></div>
+            <p class="chart-source">EirGrid AIRAA values are normalised for growth comparison only.</p>
+          </div>
+          <div class="chapter-copy reveal">
+            <p class="eyebrow">Is the projection outside the planning range?</p>
+            <h2>No. It sits between EirGrid's Median and High growth scenarios.</h2>
+            <p>The independent statistical projection reaches an index of roughly <strong>205</strong> by 2035, compared with EirGrid's <strong>195 Median</strong> and <strong>228 High</strong> scenarios.</p>
+            <div class="scope-warning">
+              <strong>Important scope difference</strong>
+              <p>EirGrid uses MVA for a broader “Data Centre and New Technology Load” category. CSO measures metered data-centre energy consumption in GWh. We compare growth rates, not raw units.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter shell interactive-chapter" id="scenario">
+      <div class="chapter-marker reveal"><span>07</span><p>Build your supply mix</p></div>
+      <div class="interactive-grid">
+        <div class="interactive-copy reveal">
+          <p class="eyebrow">6.64 TWh of additional annual demand</p>
+          <h2>Where could the extra electricity come from?</h2>
+          <p>This is a stress-test, not a forecast. Adjust the mix and see how the 2035 incremental demand is distributed.</p>
+          <div class="preset-row" role="group" aria-label="Supply mix presets">
+            <button class="preset active" data-preset="renewables">Renewables-led</button>
+            <button class="preset" data-preset="balanced">Balanced</button>
+            <button class="preset" data-preset="imports">Import-heavy</button>
+          </div>
+          <div class="controls-card">
+            <label for="renewablesRange"><span>Renewables</span><output id="renewablesOutput">70%</output></label>
+            <input id="renewablesRange" type="range" min="0" max="100" value="70" />
+            <label for="importsRange"><span>Net imports</span><output id="importsOutput">10%</output></label>
+            <input id="importsRange" type="range" min="0" max="100" value="10" />
+            <div class="computed-row"><span>Domestic flexible supply</span><strong id="domesticOutput">20%</strong></div>
+          </div>
+        </div>
+        <div class="scenario-results reveal" aria-live="polite">
+          <div class="scenario-total"><span>Additional demand to allocate</span><strong>6.64 <small>TWh/year</small></strong></div>
+          <div class="mix-bar" aria-hidden="true">
+            <span id="renewablesBar" class="mix-renewables" style="width:70%"></span>
+            <span id="domesticBar" class="mix-domestic" style="width:20%"></span>
+            <span id="importsBar" class="mix-imports" style="width:10%"></span>
+          </div>
+          <div class="result-grid">
+            <div><span class="legend-dot green"></span><small>Renewables</small><strong id="renewablesGwh">4.65 TWh</strong></div>
+            <div><span class="legend-dot amber"></span><small>Domestic flexible</small><strong id="domesticGwh">1.33 TWh</strong></div>
+            <div><span class="legend-dot blue"></span><small>Net imports</small><strong id="importsGwh">0.66 TWh</strong></div>
+          </div>
+          <p class="micro-note">“Domestic flexible” is a broad analytical bucket covering dispatchable generation, storage and other domestic flexibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-alt interactive-chapter" id="capacity">
+      <div class="shell">
+        <div class="chapter-marker reveal"><span>08</span><p>Translate energy into infrastructure</p></div>
+        <div class="interactive-grid reverse">
+          <div class="capacity-visual reveal">
+            <div class="capacity-output wind-output"><span>Wind capacity</span><strong id="windCapacity">1.27 GW</strong><small id="windEnergy">3.26 TWh/year</small></div>
+            <div class="plus-sign">+</div>
+            <div class="capacity-output solar-output"><span>Solar capacity</span><strong id="solarCapacity">1.35 GW</strong><small id="solarEnergy">1.40 TWh/year</small></div>
+          </div>
+          <div class="interactive-copy reveal">
+            <p class="eyebrow">Renewables-led case</p>
+            <h2>How much wind and solar capacity would that energy imply?</h2>
+            <p>Using Ireland-specific capacity-factor assumptions, shift the renewable portion between wind and solar.</p>
+            <div class="controls-card">
+              <label for="windMixRange"><span>Wind share of renewable energy</span><output id="windMixOutput">70%</output></label>
+              <input id="windMixRange" type="range" min="0" max="100" value="70" />
+              <div class="computed-row"><span>Solar share</span><strong id="solarMixOutput">30%</strong></div>
+            </div>
+            <div class="assumption-row">
+              <div><span>Wind capacity factor</span><strong>29.2%</strong></div>
+              <div><span>Solar capacity factor</span><strong>~11.8%</strong></div>
+            </div>
+            <p class="micro-note">This is an energy-equivalence sensitivity. Annual renewable energy does not equal firm capacity and does not remove the need for flexibility, networks or adequacy planning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter shell interactive-chapter" id="carbon">
+      <div class="chapter-marker reveal"><span>09</span><p>Carbon changes the outcome</p></div>
+      <div class="interactive-grid">
+        <div class="interactive-copy reveal">
+          <p class="eyebrow">Incremental 2035 demand</p>
+          <h2>Demand growth and grid decarbonisation have to be analysed together.</h2>
+          <p>Move the grid-intensity slider to see the annual Irish grid-emissions exposure associated with the additional 6.64 TWh.</p>
+          <div class="preset-row" role="group" aria-label="Carbon intensity presets">
+            <button class="carbon-preset active" data-carbon="197.8">2025 reference</button>
+            <button class="carbon-preset" data-carbon="100">Moderate</button>
+            <button class="carbon-preset" data-carbon="50">Deep</button>
+          </div>
+          <div class="controls-card">
+            <label for="carbonRange"><span>Grid carbon intensity</span><output id="carbonOutput">197.8 gCO₂/kWh</output></label>
+            <input id="carbonRange" type="range" min="30" max="220" step="0.1" value="197.8" />
+          </div>
+        </div>
+        <div class="carbon-result reveal" aria-live="polite">
+          <div class="carbon-ring" id="carbonRing">
+            <div><span>Incremental emissions</span><strong id="carbonMt">1.31</strong><small>Mt CO₂/year</small></div>
+          </div>
+          <div class="carbon-context">
+            <span>At <strong id="carbonIntensityInline">197.8</strong> gCO₂/kWh</span>
+            <p id="carbonSentence">Keeping grid intensity at the 2025 reference would expose the incremental demand to roughly 1.31 Mt CO₂ per year.</p>
+          </div>
+          <p class="micro-note">SEAI's consumption factor covers emissions arising within Ireland and excludes generation emissions associated with imported electricity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="conclusion chapter-alt" id="meaning">
+      <div class="shell conclusion-grid">
+        <div class="chapter-marker reveal"><span>10</span><p>What it means</p></div>
+        <div class="conclusion-copy reveal">
+          <p class="eyebrow">The takeaway</p>
+          <h2>The question is not simply whether data-centre demand grows.</h2>
+          <p class="conclusion-lead">The system impact depends on whether generation, transmission, interconnection, storage, flexibility and decarbonisation expand alongside it.</p>
+          <div class="thesis-grid">
+            <article><span>Demand</span><h3>Growth is already structural.</h3><p>Data centres now represent a materially larger share of metered electricity than a decade ago.</p></article>
+            <article><span>Adequacy</span><h3>Energy volume is only one constraint.</h3><p>Average MW, peak conditions, connection capacity and firm supply all matter.</p></article>
+            <article><span>Decarbonisation</span><h3>Cleaner electricity changes the carbon outcome.</h3><p>The same demand can have very different emissions consequences under different grid intensities.</p></article>
+          </div>
+          <blockquote>“Daniel took official Irish energy data, built a validated forecasting analysis, and turned it into an accessible interactive infrastructure story.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="methodology shell" id="methodology">
+      <div class="method-head reveal">
+        <p class="eyebrow">Transparency first</p>
+        <h2>Methodology, sources and limitations</h2>
+        <p>Every headline number on this page is traceable to the public repository.</p>
+      </div>
+      <div class="method-grid reveal">
+        <a class="method-card" href="docs/methodology.md"><span>01</span><h3>Methodology</h3><p>Data processing, rolling-origin validation, forecasting and scenario construction.</p><strong>Read methodology →</strong></a>
+        <a class="method-card" href="docs/data_sources.md"><span>02</span><h3>Source register</h3><p>CSO, EirGrid and SEAI sources, units, scope notes and assumptions.</p><strong>View sources →</strong></a>
+        <a class="method-card" href="notebooks/Ireland_Data_Centre_Energy_Analytics_Final.ipynb"><span>03</span><h3>Reproducible notebook</h3><p>The cleaned Python notebook that generates the analysis and outputs.</p><strong>Open notebook →</strong></a>
+      </div>
+      <div class="source-strip reveal">
+        <a href="https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/" target="_blank" rel="noreferrer">CSO · Data Centres ↗</a>
+        <a href="https://www.cso.ie/en/releasesandpublications/ep/p-ess/electricitysupplybysource2025/" target="_blank" rel="noreferrer">CSO · Electricity Supply ↗</a>
+        <a href="https://www.eirgrid.ie/airaa" target="_blank" rel="noreferrer">EirGrid · AIRAA ↗</a>
+        <a href="https://www.seai.ie/data-and-insights/seai-statistics/" target="_blank" rel="noreferrer">SEAI · Statistics ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><span class="brand footer-brand"><span class="brand-mark"></span>IRELAND / ENERGY / DATA</span><p>Independent portfolio analysis by Daniel Santos.</p></div>
+      <div class="footer-links"><a href="#top">Back to top ↑</a><a href="https://github.com/danielsantos2310/Ireland-Data-Center-Energy-research" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    </div>
+  </footer>
+</body>
+</html>

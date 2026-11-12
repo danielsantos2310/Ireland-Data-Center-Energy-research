@@ -1,0 +1,54 @@
+{
+  "historical": [
+    {"year":2015,"dataCentreGWh":1240,"sharePct":5.0408553193},
+    {"year":2016,"dataCentreGWh":1483,"sharePct":5.8489449813},
+    {"year":2017,"dataCentreGWh":1762,"sharePct":6.8491020757},
+    {"year":2018,"dataCentreGWh":2183,"sharePct":8.1668537224},
+    {"year":2019,"dataCentreGWh":2489,"sharePct":9.3910353154},
+    {"year":2020,"dataCentreGWh":3031,"sharePct":11.2026907156},
+    {"year":2021,"dataCentreGWh":4013,"sharePct":14.0777380201},
+    {"year":2022,"dataCentreGWh":5274,"sharePct":17.6831517184},
+    {"year":2023,"dataCentreGWh":6339,"sharePct":20.7285569471},
+    {"year":2024,"dataCentreGWh":6974,"sharePct":21.8593279840},
+    {"year":2025,"dataCentreGWh":7662,"sharePct":23.2273319793}
+  ],
+  "forecast": [
+    {"year":2026,"gwh":8413.466380474381},
+    {"year":2027,"gwh":9121.892599336825},
+    {"year":2028,"gwh":9816.256203984503},
+    {"year":2029,"gwh":10496.836344332101},
+    {"year":2030,"gwh":11163.90662902909},
+    {"year":2031,"gwh":11817.735235456623},
+    {"year":2032,"gwh":12458.585017540907},
+    {"year":2033,"gwh":13086.71361142646},
+    {"year":2034,"gwh":13702.373539051667},
+    {"year":2035,"gwh":14305.812309668338}
+  ],
+  "supply2025": {
+    "gas":13918,
+    "wind":11782,
+    "solar":1101,
+    "otherGeneration":2534,
+    "netImports":6130,
+    "storage":419,
+    "totalSupply":35884
+  },
+  "benchmark": [
+    {"label":"EirGrid Low","index":146.1939520334},
+    {"label":"EirGrid Median","index":194.9947862357},
+    {"label":"Holt Trend Projection","index":205.1306611653},
+    {"label":"EirGrid High","index":227.6329509906}
+  ],
+  "forecastMetrics": {"mae":35.4329382603,"rmse":43.0824636537,"mape":1.9687858404,"r2":0.8447201661},
+  "additional2035GWh":6643.812309668338,
+  "additionalAverageLoadMW":758.4260627475271,
+  "renewableLedGWh":4650.668616767836,
+  "capacityFactors": {"wind":0.292,"solar":0.118099671832433},
+  "carbonReference":197.8,
+  "sources": {
+    "csoDataCentres":"https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/",
+    "csoSupply":"https://www.cso.ie/en/releasesandpublications/ep/p-ess/electricitysupplybysource2025/",
+    "eirgrid":"https://www.eirgrid.ie/airaa",
+    "seai":"https://www.seai.ie/data-and-insights/seai-statistics/"
+  }
+}
