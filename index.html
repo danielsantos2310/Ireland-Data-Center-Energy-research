@@ -378,7 +378,61 @@
         <a href="https://www.seai.ie/data-and-insights/seai-statistics/" target="_blank" rel="noreferrer">SEAI · Statistics ↗</a>
       </div>
     </section>
-  </main>
+  
+
+<style id="ied-series-nav-style">
+.ied-series-nav{padding:72px 20px;background:#07131c;color:#f4f8fa;border-top:1px solid #233945}
+.ied-series-nav *{box-sizing:border-box}
+.ied-series-inner{width:min(1180px,100%);margin:0 auto}
+.ied-series-kicker{margin:0 0 8px;color:#69d8e7;font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase}
+.ied-series-title{margin:0 0 10px;font:700 clamp(28px,4vw,46px)/1.08 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.03em;color:#f4f8fa}
+.ied-series-intro{max-width:760px;margin:0 0 28px;color:#9ab0ba;font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.ied-series-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ied-series-card{display:flex;min-height:184px;flex-direction:column;text-decoration:none!important;padding:20px;border:1px solid #233945;border-radius:16px;background:#0d1e29;color:#f4f8fa!important;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.ied-series-card:hover{transform:translateY(-3px);border-color:#69d8e7;background:#102936}
+.ied-series-card[aria-current="page"]{border-color:#7ed8a4;box-shadow:inset 0 0 0 1px rgba(126,216,164,.16)}
+.ied-series-num{color:#69d8e7;font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
+.ied-series-card[aria-current="page"] .ied-series-num{color:#7ed8a4}
+.ied-series-card strong{display:block;margin:14px 0 8px;font:700 18px/1.25 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f4f8fa}
+.ied-series-card small{display:block;color:#9ab0ba;font:13px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.ied-series-open{margin-top:auto;padding-top:16px;color:#69d8e7;font:700 12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.ied-series-current{margin-left:6px;color:#7ed8a4}
+@media(max-width:900px){.ied-series-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.ied-series-grid{grid-template-columns:1fr}.ied-series-nav{padding:54px 14px}}
+</style>
+<section class="ied-series-nav" id="ireland-energy-data-series" aria-labelledby="ied-series-title">
+  <div class="ied-series-inner">
+    <p class="ied-series-kicker">Ireland Energy &amp; Data Analytics Series</p>
+    <h2 class="ied-series-title" id="ied-series-title">Explore every project in the series</h2>
+    <p class="ied-series-intro">Jump directly to any published analysis. Every project remains independent, but together they build a connected view of Irish electricity demand, prices and generation.</p>
+    <div class="ied-series-grid">
+    <a class="ied-series-card" href="https://danielsantos2310.github.io/Ireland-Data-Center-Energy-research/" aria-current="page">
+      <span class="ied-series-num">Project 01<span class="ied-series-current">· Current</span></span>
+      <strong>Data Centre Energy Analytics</strong>
+      <small>Demand growth, grid context and 2035 scenarios</small>
+      <span class="ied-series-open">You are here</span>
+    </a>
+    <a class="ied-series-card" href="https://danielsantos2310.github.io/Ireland-Electricity-Price-Analytics/" >
+      <span class="ied-series-num">Project 02</span>
+      <strong>Electricity Price Analytics</strong>
+      <small>Business electricity prices, drivers and 2035 scenarios</small>
+      <span class="ied-series-open">Open project ↗</span>
+    </a>
+    <a class="ied-series-card" href="https://danielsantos2310.github.io/Ireland-Data-Centre-Demand-Price-Analytics/" >
+      <span class="ied-series-num">Project 03</span>
+      <strong>Data Centre Demand × Price Analytics</strong>
+      <small>Testing whether data-centre demand explains electricity prices</small>
+      <span class="ied-series-open">Open project ↗</span>
+    </a>
+    <a class="ied-series-card" href="https://danielsantos2310.github.io/Ireland-Electricity-Imports-Analytics./" >
+      <span class="ied-series-num">Project 04</span>
+      <strong>Electricity Generation Analytics</strong>
+      <small>Generation mix, efficiency, fuel exposure and economics</small>
+      <span class="ied-series-open">Open project ↗</span>
+    </a></div>
+  </div>
+</section>
+</main>
 
   <footer class="site-footer">
     <div class="shell footer-grid">
